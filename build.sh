@@ -31,5 +31,5 @@ if [ "$package_md5_new" == "$package_md5_old" ];then
 else
         echo "md5 is  changed"
         creatmd5
-        docker build -t xxy_pytest .
+        docker build -t api_pytest .
 fi
