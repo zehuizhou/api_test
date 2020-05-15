@@ -45,12 +45,6 @@ pipeline {
 
             steps{
                 script {
-                    allure([
-                        includeProperties:false,
-                        reportBuildPolicy:'ALWAYS',
-                        jdk:'',
-                        results:[[path:'api_test/allure-results']],
-                    ])
 
                     publishHTML(target:[
                         reportName:"pytest-html-report",
