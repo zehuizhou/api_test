@@ -45,15 +45,13 @@ pipeline {
 
             steps{
                 script {
-
-                    publishHTML(target:[
-                        reportName:"pytest-html-report",
-                        reportDir:"${WORKSPACE}/report",
-                        reportFiles:"report.html",
-                        keepAll:true,
-                        allowMissing:true,
-                        alwaysLinkToLastBuild:false
+                    allure([
+                        includeProperties:false,
+                        reportBuildPolicy:'ALWAYS',
+                        jdk:'',
+                        results:[[path:'api_test/allure-results']],
                     ])
+
 
                 }
             }
