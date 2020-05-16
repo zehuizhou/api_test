@@ -24,7 +24,6 @@ pipeline {
                     try {
                         sh 'rm -rf ${WORKSPACE}/api_test/allure-results'
                         sh 'pytest --html=${WORKSPACE}/report/report.html --self-contained-html --alluredir=${WORKSPACE}/api_test_master/allure-results'
-                        }
                     } catch (exc) {
                             echo 'testcase execute failed......'
                       }
