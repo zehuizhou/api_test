@@ -16,21 +16,21 @@ pipeline {
         stage('Test') {
             agent {
                 docker {
-                    image 'xxy_pytest:latest'
+                    image 'api_pytest:latest'
                 }
             }
             steps {
                 script {
                     try {
-                        sh 'rm -rf ${WORKSPACE}/xxy_app_api_test/allure-results'
+                        sh 'rm -rf ${WORKSPACE}/api_test/allure-results'
                         if (env.JOB_NAME.indexOf('test') != -1) {
-                           sh 'pytest --html=./report/report.html --self-contained-html --alluredir=${WORKSPACE}/xxy_app_api_test/allure-results'
+                           sh 'pytest --html=./report/report.html --self-contained-html --alluredir=${WORKSPACE}/api_test/allure-results'
                         }
                         if (env.JOB_NAME.indexOf('dev') != -1) {
-                            sh 'pytest --html=./report/report.html --self-contained-html --alluredir=${WORKSPACE}/xxy_app_api_test/allure-results'
+                            sh 'pytest --html=./report/report.html --self-contained-html --alluredir=${WORKSPACE}/api_test/allure-results'
                         }
                     } catch (exc) {
-                            echo 'testcase execute failed.....'
+                            echo 'testcase execute failed......'
                       }
                 }
             }
@@ -38,9 +38,9 @@ pipeline {
 
        stage("Apitest Report") {
 
+
             steps{
                 script {
-
                     publishHTML(target:[
                         reportName:"pytest-html-report",
                         reportDir:"${WORKSPACE}/report",
@@ -49,7 +49,6 @@ pipeline {
                         allowMissing:true,
                         alwaysLinkToLastBuild:false
                     ])
-
                 }
             }
        }
