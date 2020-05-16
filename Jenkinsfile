@@ -32,12 +32,6 @@ pipeline {
        }
 
        stage("Apitest Report") {
-            agent {
-                docker {
-                    image 'twalter/maven-docker'
-                }
-            }
-
             steps{
                 script {
                     allure([
