@@ -38,7 +38,7 @@ pipeline {
                 script {
                     publishHTML(target:[
                         reportName:"pytest-html-report",
-                        reportDir:"${WORKSPACE}/report",
+                        reportDir:"${WORKSPACE}@2/report",
                         reportFiles:"report.html",
                         keepAll:true,
                         allowMissing:true,
