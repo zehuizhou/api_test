@@ -38,12 +38,12 @@ pipeline {
                         includeProperties:false,
                         reportBuildPolicy:'ALWAYS',
                         jdk:'',
-                        results:[[path:'${WORKSPACE}@2/allure-results']],
+                        results:[[path:'${WORKSPACE}/allure-results']],
                     ])
 
                     publishHTML(target:[
                         reportName:"pytest-html-report",
-                        reportDir:"${WORKSPACE}/report",
+                        reportDir:"${WORKSPACE}@2/report",
                         reportFiles:"report.html",
                         keepAll:true,
                         allowMissing:true,
