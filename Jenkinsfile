@@ -22,7 +22,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh 'pytest --html=${WORKSPACE}/report/report.html --self-contained-html --alluredir=${WORKSPACE}@2/allure-results'
+                        sh 'pytest --html=${WORKSPACE}/report/report.html --self-contained-html --alluredir=${WORKSPACE}/allure-results'
                     } catch (exc) {
                             echo 'testcase execute failed......'
                       }
