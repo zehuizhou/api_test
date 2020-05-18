@@ -38,7 +38,7 @@ pipeline {
                         includeProperties:false,
                         reportBuildPolicy:'ALWAYS',
                         jdk:'',
-                        results:[[path:'${WORKSPACE}@2/allure-results']],
+                        results:[[path:'${WORKSPACE}/allure-results']],
                     ])
 
                     publishHTML(target:[
