@@ -30,26 +30,11 @@ pipeline {
             }
        }
 
-       stage("Apitest Report") {
-            steps{
-                script {
-                    allure([
-                        includeProperties:false,
-                        reportBuildPolicy:'ALWAYS',
-                        jdk:'',
-                        results:[[path:'allure-results']],
-                    ])
+    }
 
-                    publishHTML(target:[
-                        reportName:"pytest-html-report",
-                        reportDir:"${WORKSPACE}@2/report",
-                        reportFiles:"report.html",
-                        keepAll:true,
-                        allowMissing:true,
-                        alwaysLinkToLastBuild:false
-                    ])
-                }
-            }
-       }
+    post{
+        always{
+            allure includeProperties:false, jdk:'', results:[[path:'allure-results']]
+        }
     }
 }
