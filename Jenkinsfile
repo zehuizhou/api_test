@@ -22,7 +22,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh 'cd ${WORKSPACE}/api_test'
+                        sh 'cd ${WORKSPACE}'
                         sh 'pytest --alluredir=allure-results'
                     } catch (exc) {
                             echo 'testcase execute failed......'
