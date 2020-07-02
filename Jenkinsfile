@@ -35,7 +35,7 @@ pipeline {
 
     post{
         always{
-            allure includeProperties:false, jdk:'', results:[[path:'${WORKSPACE}/api_test_master@2/allu']]
+            allure includeProperties:false, jdk:'', results:[[path:'${WORKSPACE}/allu']]
         }
     }
 }
