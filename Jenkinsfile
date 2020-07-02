@@ -23,6 +23,7 @@ pipeline {
                 script {
                     try {
                         sh 'pytest --alluredir=${WORKSPACE}/allu'
+                        sh 'echo ${WORKSPACE}'
                     } catch (exc) {
                             echo 'testcase execute failed......'
                       }
@@ -34,7 +35,7 @@ pipeline {
 
     post{
         always{
-            allure includeProperties:false, jdk:'', results:[[path:'**/allu']]
+            allure includeProperties:false, jdk:'', results:[[path:'${WORKSPACE}/api_test_master@2/allu']]
         }
     }
 }
