@@ -122,6 +122,7 @@ allocations_data = {
         }
     ]
 }
+
 # 调配
 deploy_data = {
     "newUserId": 3,
@@ -138,6 +139,7 @@ deploy_data = {
         }
     ]
 }
+
 # 移除公海
 in_sea_data = {
     "customerId": None,
