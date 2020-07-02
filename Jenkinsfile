@@ -22,8 +22,8 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh 'rm -rf ${WORKSPACE}/report'
-                        sh 'pytest --alluredir=${WORKSPACE}/report'
+                        cd ${WORKSPACE}/api_test
+                        sh 'pytest --alluredir=allure-results'
                     } catch (exc) {
                             echo 'testcase execute failed......'
                       }
@@ -35,7 +35,7 @@ pipeline {
 
     post{
         always{
-            allure includeProperties:false, jdk:'', results:[[path:'**/report']]
+            allure includeProperties:false, jdk:'', results:[[path:'**/allure-results']]
         }
     }
 }
