@@ -3,8 +3,6 @@ pipeline {
     
     environment {
         BUILD_SCRIPT = './build.sh'
-        PROFILES_ACTIVE_DEV = 'dev'
-        PROFILES_ACTIVE_TEST = 'test'
     }
 
     stages {
