@@ -34,7 +34,7 @@ pipeline {
 
     post{
         always{
-            allure includeProperties:false, jdk:'', results:[[path:'api_test_master/allure-report']]
+            allure includeProperties:false, jdk:'', results:[[path:'/var/jenkins_home/workspace/api_test_master/allure-report']]
         }
     }
 }
