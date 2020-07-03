@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh 'pytest --alluredir=${WORKSPACE}/report'
+                        sh 'pytest --alluredir=report'
                         sh 'echo ${WORKSPACE}'
                     } catch (exc) {
                             echo 'testcase execute failed......'
