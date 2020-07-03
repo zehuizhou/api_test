@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh 'pytest --alluredir=report'
+                        sh 'pytest --alluredir=${WORKSPACE}/report'
                         sh 'echo ${WORKSPACE}'
                     } catch (exc) {
                             echo 'testcase execute failed......'
@@ -33,7 +33,7 @@ pipeline {
 
     post{
         always{
-            allure includeProperties:false, jdk:'', results:[[path:'report']]
+            allure includeProperties:false, jdk:'', results:[[path:'${WORKSPACE}@2/report']]
         }
     }
 }
