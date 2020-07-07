@@ -31,6 +31,7 @@ if [ "$package_md5_new" == "$package_md5_old" ];then
 else
         echo "md5 is changed"
         creatmd5
-        docker rmi `docker images | grep '<none>'`
+        sudo docker rm `docker ps -a|grep Exited|awk '{print $1}'`
+        sudo docker rmi `docker images | grep  '<none>' | awk '{print $3}'`
         docker build -t api_pytest .
 fi
