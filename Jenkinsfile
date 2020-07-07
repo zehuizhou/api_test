@@ -17,6 +17,7 @@ pipeline {
             agent {
                 docker {
                     image 'api_pytest:latest'
+                    args '-rm'
                 }
             }
             steps {
