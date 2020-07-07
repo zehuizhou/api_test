@@ -3,8 +3,6 @@ pipeline {
     
     environment {
         BUILD_SCRIPT = './build.sh'
-        PROFILES_ACTIVE_DEV = 'dev'
-        PROFILES_ACTIVE_TEST = 'test'
     }
 
     stages {
@@ -23,7 +21,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh 'pytest --alluredir=${WORKSPACE}/report'
+                        sh 'pytest --alluredir=/var/jenkins_home/workspace/api_test_master/report'
                         sh 'echo ${WORKSPACE}'
                     } catch (exc) {
                             echo 'testcase execute failed......'
